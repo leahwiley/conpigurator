@@ -25,7 +25,7 @@
 	},
 	init:function(){
 		if(!conpigurator.active){
-			document.body.onchange(function(event){conpigurator.handleChange(event);});
+			document.body.addEventListener('change',function(event){conpigurator.handleChange(event);});
 			conpigurator.active = true;
 		}
 	}
