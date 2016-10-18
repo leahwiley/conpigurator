@@ -22,7 +22,7 @@
 	},
 	init:function(){
 		if(!conpigurator.active){
-			$(body).on('change',function(event){conpigurator.handleChange(event);});
+			$('body').on('change',function(event){conpigurator.handleChange(event);});
 			conpigurator.active = true;
 		}
 	}
