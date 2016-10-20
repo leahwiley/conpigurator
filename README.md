@@ -11,9 +11,11 @@ Conpiguration is run by a delegated change event handler applied to the body. It
 #Example
 ```html
 <div id="conpigurateMe">Target</div>
-<label for="conpig--bg">
+<label for="conpig--bg">Background</label>
 <input id="conpig--bg" type="text" class="conpiguratorInput" data-conpigbg="#conpigurateMe"/>
+<label for="conpig--border">Border</label>
 <input id="conpig--border" type="text" class="conpiguratorInput" data-conpigborder="#conpigurateMe"/>
+<label for="conpig--text">text</label>
 <input id="conpig--text" type="text" class="conpiguratorInput" data-conpigtext="#conpigurateMe"/>
 ```
 
