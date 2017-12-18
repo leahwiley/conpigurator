@@ -1,32 +1,40 @@
 # Conpigurator (Pigment Configurator)
 
-Lightweight JS library for changing CSS color properties on page with designated form fields
+Lightweight JS class for changing CSS color properties on page with designated inputs
 
-Conpigurator.jquery.js is dependent on jQuery methods to become more succinct and provide IE compatibility. If you are already loading jQuery, this file has an even smaller footprint. If IE compatibility is necessary, jQuery + this file will have you conpigurating in a flash.
-
-Conpiguator.js uses vanilla javascript. So, it has no dependencies, but it is not IE compatible.
-
-Conpiguration is run by a delegated change event handler applied to the body. It checks for the change event's target to have the "conpiguratorInput" class. If so, it checks for the existence of any of the following data attributes: data-conpigbg, data-conpigborder, data-conpigtext. The value of these attributes is expected to be an element selector string. The Conpigurator library will then change the backgroundColor, borderColor, or (font) color of the selected element(s) based on the values of data-conpigbg, data-conpigborder, and data-conpigtext respectively.
+When a new Conpigurator is constructed, the identified DOM element is given a data-conpigurator-index attribute and an "onChange" event listener. When the DOM element experiences a change event, it will trigger the Conpigurator object in memory associated with the element's conpigurator index to run its update function, changing the CSS properties of targeted elements specified in calls to the addTarget function.
 
 #Example
 ```html
-<div id="conpigurateMe">Target</div>
-<label for="conpig--bg">Background</label>
-<input id="conpig--bg" type="text" class="conpiguratorInput" data-conpigbg="#conpigurateMe"/>
-<label for="conpig--border">Border</label>
-<input id="conpig--border" type="text" class="conpiguratorInput" data-conpigborder="#conpigurateMe"/>
-<label for="conpig--text">text</label>
-<input id="conpig--text" type="text" class="conpiguratorInput" data-conpigtext="#conpigurateMe"/>
+<p id="conpigurateMe">Target</p>
+<input id="conpigurateU" type="text">
+<script>
+	// CONSTRUCTOR with chained target assignment
+	var myConpigurator = new Conpigurator('conpigurateU')
+		.addTarget('conpigurateMe','backgroundColor')
+		.addTarget('conpigurateMe2','color');
+	
+	// Explicit target assignment
+	myConpigurator.addTarget('conpigurateMe3','{CSS color property}');
+	
+	// Manual trigger application of myConpigurator color to targets
+	myConpigurator.update();
+</script>
 ```
 
-#v0.0.1 - <a href="https://en.wikipedia.org/wiki/List_of_pig_breeds">AksaiBlackPied</a>
+#v1.0.0 - <a href="https://en.wikipedia.org/wiki/List_of_pig_breeds">AMYorkshire</a>
+- Standalone prototype constructor approach implemented
+- Full vanilla JavaScript functionality
+- Single Conpigurator can affect multiple properties and multiple elements
+- Compatibility tested with IE9, IE10, Edge, Firefox 56.0.2, and Chrome 63.0.3239.84
+
+#v0.0.1 - AksaiBlackPied
 - Conpigurator has only been tested with full 6-digit Hexadecimal color values. RGB values and CSS color names are outright unsupported. 3-digit Hex values are untested.
 - Vanilla conpigurator.js is NOT WORKING YET. I suspect the delegated change event listener is either being applied incorrectly or isn't catching the events.
 
 #Development Goals
-- Get Vanilla conpigurator.js working (as in, loading the library and calling it's init function is a set-and-forget process leaving all conpigurating to be run off delegated change event handling)
-- Support 3-and-6-digit Hexadecimal, rgb, rgba, and CSS named color values
-- Write conpigurator as a jQuery plugin with a signature like: 
-```html
-$({selector}).conpigurator({[camel-cased CSS color property]:[selector of element to conpigurate],...});
+- conpigurator.min.js
+- Validate target element existence in addTarget function
+- Validate CSS property selection in addTarget function
+- Support  CSS named color values
 ```
