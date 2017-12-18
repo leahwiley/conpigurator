@@ -24,7 +24,7 @@ When a new Conpigurator is constructed, the identified DOM element is given a da
 
 #v1.0.0 - <a href="https://en.wikipedia.org/wiki/List_of_pig_breeds">AMYorkshire</a>
 - Standalone prototype constructor approach implemented
-- Full vanilla JavaScript functionality
+- Full vanilla JavaScript functionality with 3- and 6-digit Hexadecimal values
 - Single Conpigurator can affect multiple properties and multiple elements
 - Compatibility tested with IE9, IE10, Edge, Firefox 56.0.2, and Chrome 63.0.3239.84
 
