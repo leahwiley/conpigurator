@@ -1,6 +1,6 @@
 /*	
 	https://github.com/nathanielwiley/conpigurator 
-	CONPIGURATOR (v1.1.0 - AMYorkshire) By Nathaniel Wiley
+	CONPIGURATOR (v1.1.2 - AngelnSaddleback) By Nathaniel Wiley
 	2017-12-18
 */
 ;var ConpiguratorArray = [];
