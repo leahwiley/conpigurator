@@ -1,9 +1,10 @@
 /*	
 	https://github.com/nathanielwiley/conpigurator 
-	CONPIGURATOR (v1.0.0 - AMYorkshire) By Nathaniel Wiley
+	CONPIGURATOR (v1.1.0 - AMYorkshire) By Nathaniel Wiley
 	2017-12-18
 */
 ;var ConpiguratorArray = [];
+var hexRegex = /#?[a-fA-F0-9]{3,6}/;
 function Conpigurator (id) {
 	this.el = document.getElementById(id);
 	this.el.setAttribute('data-conpigurator-index',ConpiguratorArray.length);
@@ -12,10 +13,10 @@ function Conpigurator (id) {
 		ConpiguratorArray[Number(event.target.getAttribute('data-conpigurator-index'))].update();
 	});
 	this.update = function () {
-		var hex = this.el.value;// Assumes this.el.value is a Hexadecimal value
-		if(hex.substring(0,1) !== '#') hex = '#'+hex;
+		var hue = this.el.value;// Assumes this.el.value is a Hexadecimal value
+		if(hue.match(hexRegex) !== null && hue.substring(0,1) !== '#') hue = '#'+hue;
 		for(var idx in this.targets){
-			document.getElementById(this.targets[idx].ID).style[this.targets[idx].prop] = hex;
+			document.getElementById(this.targets[idx].ID).style[this.targets[idx].prop] = hue;
 		}
 		return this;
 	};
