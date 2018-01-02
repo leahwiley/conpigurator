@@ -21,6 +21,10 @@ When a new Conpigurator is constructed, the identified DOM element is given a da
 	myConpigurator.update();
 </script>
 ```
+#v1.2.0 - <a href="https://en.wikipedia.org/wiki/List_of_pig_breeds">AppalachianEnglish</a>
+- Validate target element existence in addTarget function
+- Validate CSS property name in addTarget function
+
 #v1.1.0 - <a href="https://en.wikipedia.org/wiki/List_of_pig_breeds">AngelnSaddleback</a>
 - Support CSS named color values using Hexadecimal code regex before forcing '#' to beginning of value
 
@@ -36,6 +40,4 @@ When a new Conpigurator is constructed, the identified DOM element is given a da
 
 #Development Goals
 - conpigurator.min.js
-- Validate target element existence in addTarget function
-- Validate CSS property selection in addTarget function
 ```

@@ -1,6 +1,6 @@
 /*	
 	https://github.com/nathanielwiley/conpigurator 
-	CONPIGURATOR (v1.1.2 - AngelnSaddleback) By Nathaniel Wiley
+	CONPIGURATOR (v1.2.0 - AppalachianEnglish) By Nathaniel Wiley
 	2017-12-18
 */
 ;var ConpiguratorArray = [];
@@ -23,7 +23,8 @@ function Conpigurator (id) {
 	this.addTarget = function (id,property) {// No safeguards against ID or property name typos OR incompatible property names
 		id = id || '';
 		property = property || 'backgroundColor';
-		this.targets.push({ID:id,prop:property});
+		var targetEl = document.getElementById(id);
+		if(targetEl !== null && targetEl.style[property] !== undefined) this.targets.push({ID:id,prop:property});
 		return this;
 	};
 	ConpiguratorArray.push(this);
