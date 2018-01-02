@@ -25,7 +25,7 @@ When a new Conpigurator is constructed, the identified DOM element is given a da
 - Validate target element existence in addTarget function
 - Validate CSS property name in addTarget function
 
-#v1.1.0 - <a href="https://en.wikipedia.org/wiki/List_of_pig_breeds">AngelnSaddleback</a>
+#v1.1.0 - AngelnSaddleback
 - Support CSS named color values using Hexadecimal code regex before forcing '#' to beginning of value
 
 #v1.0.0 - AMYorkshire
