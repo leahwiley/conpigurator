@@ -6,22 +6,34 @@ When a new Conpigurator is constructed, the identified DOM element is given a da
 
 #Example
 ```html
-<p id="conpigurateMe">Target</p>
+<p id="conpigurateMe">Background Color From First Input</p>
 <input id="conpigurateU" type="text">
+<p id="conpigurateMe2">Text Color From First Input and Background Color From Second Input (Hexadecimal values ONLY)</p>
+<input id="conpigurateHexOnly" type="text">
 <script>
 	// CONSTRUCTOR with chained target assignment
 	var myConpigurator = new Conpigurator('conpigurateU')
 		.addTarget('conpigurateMe','backgroundColor')
 		.addTarget('conpigurateMe2','color');
+
+	// CONSTRUCTOR with second argument that forces the conpigurator to only accept Hexadecimal values
+	var myHexOnlyConpigurator = new Conpigurator('conpigurateHexOnly',true);
 	
 	// Explicit target assignment
-	myConpigurator.addTarget('conpigurateMe3','{CSS color property}');
-	
+	myHexOnlyConpigurator.addTarget('conpigurateMe2','backgroundColor');
+		
 	// Manual trigger application of myConpigurator color to targets
 	myConpigurator.update();
+
+	// Manually toggle application of myConpigurator color to targets
+	myHexOnlyConpigurator.hexOnly(true);// When passed a boolean, it expressly sets the Conpigurator hexLock property. Given any other (including no) arguments, it inverts the hexLock property.
 </script>
 ```
-#v1.2.0 - <a href="https://en.wikipedia.org/wiki/List_of_pig_breeds">AppalachianEnglish</a>
+#v1.3.0 - <a href="https://en.wikipedia.org/wiki/List_of_pig_breeds">ArapawaIsland</a>
+- Add feature to toggle whether a conpigurator will accept non-Hexadecimal values
+- Only add conpigurator to ConpiguratorArray if the ID given to constructor matches something in the DOM
+
+#v1.2.0 - AppalachianEnglish
 - Validate target element existence in addTarget function
 - Validate CSS property name in addTarget function
 
