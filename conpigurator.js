@@ -1,9 +1,10 @@
 /*	
 	https://github.com/nathanielwiley/conpigurator 
-	CONPIGURATOR (v1.3.0 - ArapawaIsland) By Nathaniel Wiley
-	2018-1-3
+	CONPIGURATOR (v1.4.0 - AucklandIsland) By Nathaniel Wiley
+	2018-1-11
 */
-;var ConpiguratorArray = [];
+;"use strict";
+var ConpiguratorArray = [];
 var ConpiguratorHexRegex = /#?[a-fA-F0-9]{3,6}/;
 function Conpigurator (id,hexOnly) {
 	this.el = document.getElementById(id);
@@ -11,9 +12,6 @@ function Conpigurator (id,hexOnly) {
 		this.hexLock = (typeof(hexOnly) === 'boolean')? hexOnly : false;
 		this.el.setAttribute('data-conpigurator-index',ConpiguratorArray.length);
 		this.targets = [];
-		this.el.addEventListener('change',function(event){
-			ConpiguratorArray[Number(event.target.getAttribute('data-conpigurator-index'))].update();
-		});
 		this.update = function () {
 			var hue = this.el.value;
 			var isHex = (hue.match(ConpiguratorHexRegex) !== null)? true : false;
@@ -33,7 +31,7 @@ function Conpigurator (id,hexOnly) {
 			id = id || '';
 			property = property || 'backgroundColor';
 			var targetEl = document.getElementById(id);
-			if(targetEl !== null && targetEl.style[property] !== undefined) this.targets.push({ID:id,prop:property});
+			if(targetEl !== null && targetEl.style[property] !== undefined){ this.targets.push({ID:id,prop:property}); }
 			return this;
 		};
 		this.hexOnly = function(hexOnly) {
@@ -46,3 +44,6 @@ function Conpigurator (id,hexOnly) {
 		return null;
 	}
 }
+document.body.addEventListener('change',function(event){ 
+	ConpiguratorArray[Number(event.target.getAttribute('data-conpigurator-index'))].update();
+});

@@ -29,7 +29,12 @@ When a new Conpigurator is constructed, the identified DOM element is given a da
 	myHexOnlyConpigurator.hexOnly(true);// When passed a boolean, it expressly sets the Conpigurator hexLock property. Given any other (including no) arguments, it inverts the hexLock property.
 </script>
 ```
-#v1.3.0 - <a href="https://en.wikipedia.org/wiki/List_of_pig_breeds">ArapawaIsland</a>
+#v1.4.0 - <a href="https://en.wikipedia.org/wiki/List_of_pig_breeds">AucklandIsland</a>
+- Add single delegated "on change" listener to body element rather than giving each conpigurator its own listener
+- Incorporate JSHint suggestions
+- Include conpigurator.min.js in repo
+
+#v1.3.0 - ArapawaIsland
 - Add feature to toggle whether a conpigurator will accept non-Hexadecimal values
 - Only add conpigurator to ConpiguratorArray if the ID given to constructor matches something in the DOM
 
