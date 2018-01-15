@@ -55,6 +55,7 @@ When a new Conpigurator is constructed, the identified DOM element is given a da
 - Conpigurator has only been tested with full 6-digit Hexadecimal color values. RGB values and CSS color names are outright unsupported. 3-digit Hex values are untested.
 - Vanilla conpigurator.js is NOT WORKING YET. I suspect the delegated change event listener is either being applied incorrectly or isn't catching the events.
 
-#Development Goals
-- conpigurator.min.js
+#Future Development Goals
+- RGB support
+- CSS color name validation
 ```
