@@ -1,7 +1,7 @@
 /*	
 	https://github.com/nathanielwiley/conpigurator 
 	CONPIGURATOR (v1.5.0 - AUYorkshire) By Nathaniel Wiley
-	2018-1-11
+	2018-5-23
 */
 ;"use strict";
 var ConpiguratorArray = [];
@@ -52,6 +52,16 @@ function Conpigurator (id,hexOnly) {
 			if(targetEl !== null && targetEl.style[property] !== undefined){ this.targets.push({ID:id,prop:property}); }
 			return this;
 		};
+		this.removeTarget = function (id,property) {
+			id = id || '';
+			property = property || '';
+			var newTargets = [];
+			for(var idx in this.targets){
+				if(this.targets[idx].ID !== id || this.targets[idx].prop !== property) newTargets.push(this.targets[idx]);
+			}
+			this.targets = newTargets;
+			return this;
+		};
 		this.hexOnly = function(hexOnly) {
 			this.hexLock = (typeof(hexOnly) === 'boolean')? hexOnly : !this.hexLock;
 			return this;
@@ -62,6 +72,6 @@ function Conpigurator (id,hexOnly) {
 		return null;
 	}
 }
-document.body.addEventListener('change',function(event){ 
+document.body.addEventListener('change',function(event){
 	ConpiguratorArray[Number(event.target.getAttribute('data-conpigurator-index'))].update();
 });
