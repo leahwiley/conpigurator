@@ -21,6 +21,10 @@ When a new Conpigurator is constructed, the identified DOM element is given a da
 	
 	// Explicit target assignment
 	myHexOnlyConpigurator.addTarget('conpigurateMe2','backgroundColor');
+
+	// Query Selector Target Assignment 
+	myHexOnlyConpigurator.addTarget('p','borderColor');// By tag
+	myHexOnlyConpigurator.addTarget('.className','backgroundColor');// By class
 		
 	// Manual trigger application of myConpigurator color to targets
 	myConpigurator.update();
@@ -29,7 +33,10 @@ When a new Conpigurator is constructed, the identified DOM element is given a da
 	myHexOnlyConpigurator.hexOnly(true);// When passed a boolean, it expressly sets the Conpigurator hexLock property. Given any other (including no) arguments, it inverts the hexLock property.
 </script>
 ```
-#v1.4.0 - <a href="https://en.wikipedia.org/wiki/List_of_pig_breeds">AucklandIsland</a>
+#v1.5.0 - <a href="https://en.wikipedia.org/wiki/List_of_pig_breeds">AUYorkshire</a>
+- DOM query selector strings can be used to add targets to a conpigurator
+
+#v1.4.0 - AucklandIsland
 - Add single delegated "on change" listener to body element rather than giving each conpigurator its own listener
 - Incorporate JSHint suggestions
 - Include conpigurator.min.js in repo

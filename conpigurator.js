@@ -1,6 +1,6 @@
 /*	
 	https://github.com/nathanielwiley/conpigurator 
-	CONPIGURATOR (v1.4.0 - AucklandIsland) By Nathaniel Wiley
+	CONPIGURATOR (v1.5.0 - AUYorkshire) By Nathaniel Wiley
 	2018-1-11
 */
 ;"use strict";
@@ -22,7 +22,20 @@ function Conpigurator (id,hexOnly) {
 					//this.el.value = hue;// Optional? If input is part of form submission, they might not want the # on the back end
 				}
 				for(var idx in this.targets){
-					document.getElementById(this.targets[idx].ID).style[this.targets[idx].prop] = hue;
+					try{
+						var thisProp = this.targets[idx].prop;
+						var theseNodes = document.querySelectorAll(this.targets[idx].ID);
+						if(theseNodes.length){
+							for(var nIdx in theseNodes){
+								if(theseNodes[nIdx].style) theseNodes[nIdx].style[thisProp] = hue;
+							}
+						} else {
+							var targetEl = document.getElementById(this.targets[idx].ID);
+							if(targetEl !== null && targetEl.style[thisProp] !== undefined) targetEl.style[thisProp] = hue;
+						}
+					} catch (e) {
+						document.getElementById(this.targets[idx].ID).style[thisProp] = hue;
+					}
 				}
 			}
 			return this;
@@ -30,7 +43,12 @@ function Conpigurator (id,hexOnly) {
 		this.addTarget = function (id,property) {
 			id = id || '';
 			property = property || 'backgroundColor';
-			var targetEl = document.getElementById(id);
+			var targetEl = null;
+			try{
+				var theseNodes = document.querySelectorAll(id);
+				if(theseNodes.length) targetEl = theseNodes[0];
+			} catch (e) {}
+			if(targetEl === null) targetEl = document.getElementById(id);
 			if(targetEl !== null && targetEl.style[property] !== undefined){ this.targets.push({ID:id,prop:property}); }
 			return this;
 		};
